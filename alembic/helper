@@ -1,0 +1,6 @@
+op.add_column('user', sa.Column('is_superuser', sa.Boolean(), nullable=True))
+
+op.execute("UPDATE user SET is_superuser = FALSE WHERE is_superuser IS NULL")
+op.alter_column('user', 'is_superuser', nullable=False)
+
+/////////////////////////////////////////////////// update the nullable = False
